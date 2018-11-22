@@ -22,7 +22,8 @@ call vundle#begin()
 	"Plugin 'file:///home/gmarik/path/to/plugin'
 	" The sparkup vim script is in a subdirectory of this repo called vim.
 	" Pass the path to set the runtimepath properly.
-	Plugin 'Valloric/YouCompleteMe'
+	"Plugin 'Valloric/YouCompleteMe'
+	Plugin 'davidhalter/jedi-vim'
 	"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 	" Install L9 and avoid a Naming conflict if you've already installed a
 	" different version somewhere else.
@@ -63,7 +64,7 @@ set guifont=Monaco:h13
 set t_Co=256 "ensure vim scheme works in tmux"
 syntax on   "开启语法高亮"
 let g:solarized_termcolors=256  "solarized主题设置在终端下的设置"
-set background=light    "设置背景色"
+set background=light   "设置背景色"
 colorscheme solarized
 set nowrap  "设置不折行"
 set fileformat=unix "设置以unix的格式保存文件"
@@ -86,6 +87,7 @@ set noexpandtab     "不允许扩展table"
 set whichwrap+=<,>,h,l
 set autoread
 set cursorcolumn        "突出显示当前列"
+set cursorline
 let g:indentLine_char='¦'
 let g:indentLine_enabled = 1
 set conceallevel=1
@@ -107,3 +109,7 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 "窗口大小"
 let NERDTreeWinSize=25
 
+if &term=~ '256color'
+	set t_ut=
+endif
+set term=screen-256color
